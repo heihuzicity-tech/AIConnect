@@ -17,6 +17,13 @@
   [![License](https://img.shields.io/github/license/heihuzicity-tech/AIConnect?style=flat-square)](LICENSE)
 </div>
 
+## ⚠️ 重要说明（必读）
+
+- 本仓库当前仅适配了前端界面，属于 UI 演示项目。
+- 并不是一个完整可运行的「前后端」项目，默认不具备真实的数据采集与聚合能力。
+- 页面中展示的数据为模拟数据（mock），后端接口调用在未部署和配置的情况下将被忽略或静默失败。
+- `Supabase/Edge Functions` 相关代码仅用于结构演示与未来拓展参考，默认未部署、不生效。
+
 ## ✨ 功能特性
 
 - 🔄 **多源聚合** - 整合官方公告、X推文、博客文章、GitHub动态等多种信息源
@@ -45,19 +52,21 @@ cd AIConnect
 npm install
 ```
 
-### 启动开发服务器
+### 启动开发服务器（前端演示）
 
 ```bash
 npm run dev
 ```
 
-访问 `http://localhost:3000` 即可查看应用。
+访问 `http://localhost:3000` 预览前端演示界面。无需配置后端即可浏览 UI；若未配置或未部署后端，界面将使用内置的模拟数据，无法进行真实的数据采集与聚合。
 
-### 构建生产版本
+### 构建生产版本（静态前端）
 
 ```bash
 npm run build
 ```
+
+上述命令仅构建静态前端资源，便于部署为纯前端演示站点。要实现真实采集与后端功能，需要自行实现并部署后端服务。
 
 ## 🏗️ 技术架构
 
@@ -70,11 +79,11 @@ npm run build
 - **Tailwind CSS** - 实用优先的CSS框架
 - **Lucide React** - 精美的图标库
 
-### 后端服务
+### 后端说明（演示）
 
-- **Supabase** - 开源的Firebase替代方案
-- **Edge Functions** - 服务端数据收集和处理
-- **实时数据库** - 存储和同步信息数据
+- 仓库内包含 `Supabase Edge Functions` 与相关示例代码，仅用于结构演示与未来扩展参考。
+- 默认未部署、不生效；当前项目开箱即用的能力仅限于前端 UI 演示与模拟数据展示。
+- 如需具备真实的数据采集、聚合与持久化能力，需要自行实现、配置并部署后端（数据库、定时任务、第三方 API 凭证等）。
 
 ## 📋 项目结构
 
@@ -98,22 +107,20 @@ src/
 
 ## 🔧 配置说明
 
-### Supabase配置
+### Supabase 配置（可选，演示用）
 
-1. 在[Supabase](https://supabase.com)创建新项目
-2. 在 `src/utils/supabase/info.tsx` 中配置项目信息：
-
-```typescript
-export const projectId = 'your-project-id'
-export const publicAnonKey = 'your-anon-key'
-```
+- 代码中包含 `src/utils/supabase/info.tsx` 用于指向示例项目，仅用于演示前端如何调用接口。
+- 未部署或未配置后端时，该配置不会启用实际的数据采集流程；前端将继续使用模拟数据。
+- 若你计划自建后端，请在 [Supabase](https://supabase.com) 创建项目，并在 `src/utils/supabase/info.tsx` 中替换为你自己的 `projectId` 与 `publicAnonKey`，同时部署与对接相应的 Edge Functions 与数据库表结构。
 
 ### 数据收集器配置
 
-项目支持以下数据源的自动收集：
-- RSS订阅源
-- GitHub仓库动态
-- Twitter/X API（需要API密钥）
+项目目标支持以下数据源的自动收集（当前仓库默认不提供真实采集能力，仅作演示）：
+- RSS 订阅源（需后端任务与解析管线）
+- GitHub 仓库动态（需 GitHub API 凭证与后端采集逻辑）
+- Twitter/X API（需 API 密钥与后端采集逻辑）
+
+如需启用真实采集，请自行实现并部署后端服务与定时任务，前端可直接复用现有 UI 与交互。
 
 ## 🤝 贡献指南
 
