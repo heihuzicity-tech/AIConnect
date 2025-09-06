@@ -5,6 +5,12 @@
   
   <p>一个现代化的AI情报聚合平台，帮助您实时追踪AI领域的最新动态</p>
   
+  <p>
+    <a href="https://heihuzicity-ai.figma.site/" target="_blank">
+      <strong>🌐 在线体验 →</strong>
+    </a>
+  </p>
+  
   [![GitHub stars](https://img.shields.io/github/stars/heihuzicity-tech/AIConnect?style=flat-square)](https://github.com/heihuzicity-tech/AIConnect/stargazers)
   [![GitHub forks](https://img.shields.io/github/forks/heihuzicity-tech/AIConnect?style=flat-square)](https://github.com/heihuzicity-tech/AIConnect/network)
   [![GitHub issues](https://img.shields.io/github/issues/heihuzicity-tech/AIConnect?style=flat-square)](https://github.com/heihuzicity-tech/AIConnect/issues)
